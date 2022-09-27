@@ -1,0 +1,44 @@
+{{PROBLEM}} Class Design Recipe
+1. Describe the Problem
+As a user
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
+
+
+2. Design the Class Interface
+
+class music
+  def initalize()
+    @list = []
+  end
+
+  def add(artist, track)
+    #add artist and track to list as an array
+  end
+
+  def list()
+    #return list of tracks as string
+  end
+end
+
+3. Create Examples as Tests
+
+# 1
+music = Music.new
+music.add("Lizzo", "About Damn Time")
+music.list() # => "About Damn Time by Lizzo"
+
+# 2
+music = Music.new
+music.add("", "About Damn Time") => throw error Need to pass an artist
+
+
+# 3
+music = Music.new
+music.add("Lizzo", "") => throw error Need to pass a track
+
+# 4
+music = Music.new
+music.add("Lizzo", "About Damn Time")
+music.add("BLACKPINK", "Pink Venom")
+music.list() # => "About Damn Time by Lizzo\nPink Venom by BLACKPINK"

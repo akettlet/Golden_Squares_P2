@@ -1,0 +1,64 @@
+{{PROBLEM}} Class Design Recipe
+1. Describe the Problem
+    As a user
+    So that I can keep track of my tasks
+    I want a program that I can add todo tasks to and see a list of them.
+
+    As a user
+    So that I can focus on tasks to complete
+    I want to mark tasks as complete and have them disappear from the list.
+
+2. Design the Class Interface
+class Todo
+  def initialize()
+    # ...
+  end
+
+  def add_task(task) # task is a string
+    # No return value
+  end
+
+  def list_tasks() # returns a list of tasks, fails if list is empty
+    # ...
+  end
+
+  def task_complete(task)
+    # remove task from list
+  end
+end
+
+3. Create Examples as Tests
+# 1
+todo = Todo.new
+todo.add_task("Walk the dog")
+todo.list_tasks() # => "Walk the dog"
+
+# 2
+todo = Todo.new
+todo.list_tasks() # fails with "No task set."
+
+# 3
+todo = Todo.new
+todo.add("")
+todo.list_tasks() # => ""
+
+#4
+todo = Todo.new
+todo.add("Walk the dog")
+todo.add("Feed the dog")
+todo.list_tasks() => "Walk the dog"
+"feed the dog"
+
+#5
+todo = Todo.new
+todo.add("Walk the dog")
+todo.add("Feed the dog")
+todo.task_complete(Walk the dog)
+todo.list_tasks() = => "Feed the dog"
+
+#6
+todo = Todo.new
+todo.add("Walk the dog")
+todo.add("Feed the dog")
+todo.task_complete(Stroke the dog)
+todo.list_tasks() = => fails with "No such task"
