@@ -1,0 +1,31 @@
+{{PROBLEM}} Method Design Recipe
+
+1. As a user
+So that I can improve my grammar
+I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark.
+
+
+2. Design the Method Signature
+
+grammar tests if a string starts with a capital letter an ends with ., ! or ?
+
+bool = grammar(str)
+
+str: is a string containing sentence
+bool: is a boolean.
+
+This method does not print anything or have any side effects
+
+
+3. Create Examples as Tests
+
+grammar("") => false
+grammar("Hello.") => True
+grammar("Hello?") => True
+grammar("Hello!") => True
+grammar("hello.") => false
+grammar("hello?") => false
+grammar("hello!") => false
+grammar("hello") => false
+grammar(!string) => throws an error
+grammar(nil) => throws an error
